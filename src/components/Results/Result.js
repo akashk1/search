@@ -1,7 +1,8 @@
 import React from "react";
 
-const Result = ({ name }) => {
-  return <div>Name : {name}</div>;
+const Result = ({ data }) => {
+  console.log(data);
+  return <div>Name : {data}</div>;
 };
 
 export default Result;

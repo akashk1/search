@@ -7,18 +7,20 @@ const Search = () => {
   const [searchText, setSearchText] = React.useState("");
   const [suggestions, setSuggestions] = React.useState([]);
   const [totalResults, setTotalResults] = React.useState(0);
-  React.useEffect(() => {}, [suggestions, searchText]);
+  const [name, setName] = React.useState("");
+  let details = null;
+  React.useEffect(() => {}, [suggestions, searchText, name]);
   const debounce = (func, delay) => {
     let debounceTimer;
     return function () {
       const context = this;
       const args = arguments;
-      console.log(context, args);
+
       clearTimeout(debounceTimer);
       debounceTimer = setTimeout(() => func.apply(context, args), delay);
     };
   };
-  let details = null;
+
   let suggestionOptions;
   const inputHandler = debounce((value) => {
     if (value === "") {
@@ -26,7 +28,6 @@ const Search = () => {
       setTotalResults(0);
       return;
     }
-    console.log(value);
 
     const url = `https://swapi.dev/api/people/?search=${value}`;
     axios.get(url).then((res) => {
@@ -37,9 +38,10 @@ const Search = () => {
   const showDetails = (data) => {
     var val = document.getElementById("input").value;
     var opts = document.getElementById("suggestions").childNodes;
+    console.log(opts[0], val);
     for (var i = 0; i < opts.length; i++) {
       if (opts[i].value === val) {
-        details = <Result data={val} />;
+        setName(val);
         break;
       }
     }
@@ -59,6 +61,7 @@ const Search = () => {
     <div className={classes.container}>
       <input
         id="input"
+        onInput={showDetails}
         className={classes.search}
         type="text"
         list="suggestions"
@@ -75,7 +78,7 @@ const Search = () => {
       </datalist>
       <button className={classes.btn}>Search</button>
       <div className={classes.total}>Total Results :{totalResults} </div>
-      {details}
+      <Result data={name} />;
     </div>
   );
 };
