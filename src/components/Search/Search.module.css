@@ -1,0 +1,45 @@
+.container {
+  margin-top: 20px;
+}
+
+.search {
+  width: 300px;
+  height: 30px;
+  border-radius: 1px;
+  font-size: 16px;
+  box-shadow: 2px 3px 4px grey;
+  padding: 4px;
+}
+
+.search:hover {
+  border: 1px solid black;
+}
+
+.search:focus {
+  border: 1px solid black;
+}
+.search:focus {
+  border: none;
+}
+.btn {
+  width: 90px;
+  height: 45px;
+  background-color: rebeccapurple;
+  border: none;
+  border-radius: 2px;
+  color: white;
+  font-size: 16px;
+  margin-left: 10px;
+}
+
+.btn:hover {
+  background-color: rgb(121, 77, 165);
+}
+
+.total {
+  font-size: 25px;
+  margin-top: 400px;
+  font-weight: 600;
+  text-shadow: 2px 3px 3px grey;
+  color: red;
+}
