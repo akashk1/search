@@ -38,7 +38,7 @@ const Search = () => {
   const showDetails = (data) => {
     var val = document.getElementById("input").value;
     var opts = document.getElementById("suggestions").childNodes;
-    console.log(opts[0], val);
+
     for (var i = 0; i < opts.length; i++) {
       if (opts[i].value === val) {
         setName(val);
