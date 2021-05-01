@@ -76,7 +76,6 @@ const Search = () => {
       <datalist className={classes.datalist} id="suggestions">
         {suggestionOptions}
       </datalist>
-      <button className={classes.btn}>Search</button>
       <div className={classes.total}>Total Results :{totalResults} </div>
       <Result data={name} />;
     </div>
